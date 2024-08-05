@@ -1,0 +1,19 @@
+#titulo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e50914;
+}
+
+
+.nav-link:focus {
+    color: blue; /* Cambia el color del texto a azul */
+    background-color: lightblue; /* Cambia el fondo a azul claro */
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+}
+
+.active{
+    color: blue; /* Cambia el color del texto a azul */
+    background-color: lightblue; /* Cambia el fondo a azul claro */
+    outline: none; /* Elimina el borde de enfoque predeterminado */
+
+}

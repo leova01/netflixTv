@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<!-- pagina de detalles de pelicula -->
+<div class="container " style="height: 100vh;">
+  <div class="row my-5">
+    <div class="col-md-4">
+      <img
+      [src]="Details.poster_path | image"
+      class="img-fluid"
+    />
+    </div>
+    <div class="col-md-8">
+      <div class="row ">
+        <h2 class="d-flex justify-content-center">{{Details.title}}</h2>
+        <h4 class="d-flex justify-content-center">{{Details.tagline}}</h4>
+      </div>
+      <div class="row">
+        <p>Status: {{Details.status}}</p>
+        <p>Realease date: {{Details.release_date}}</p>
+      </div>
+      <div class="row d-flex">
+        <div class="col-1">Genres: </div>
+        <div class="col-11 d-flex"> <p class="d-flex mx-2" *ngFor="let genre of Details.genres">{{genre.name}}</p></div>
+      </div>
+
+      <hr>
+      <p class="">{{Details.overview}}</p>
+  </div>
+</div>
+
