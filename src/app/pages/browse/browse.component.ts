@@ -46,6 +46,8 @@ export class BrowseComponent implements OnInit, AfterViewInit {
 
   MovieServiceService = inject(MovieServiceService);
 
+  hasLoaded: boolean = false;
+
   constructor(private router: Router) {}
  
   movies: IVideoContent[] = [];
@@ -61,13 +63,7 @@ export class BrowseComponent implements OnInit, AfterViewInit {
   cuentaClicks = 0;
   currentSlide=0;
   navItems = [
-    'All',
-    'Movies',
-    'TV Shows',
-    'Now Playing',
-    'Popular',
-    'Top Rated',
-    'Upcoming',
+    'All'
   ];
   onlyMovies: IVideoContent[] = [];
   
@@ -229,10 +225,7 @@ export class BrowseComponent implements OnInit, AfterViewInit {
             else if(activeHElement.classList.contains('seleccion2')){
               (cursorH[this.cursorActivoHorizontal] as HTMLElement).click();
             }
-            
-            
             else {
-              console.log('NO VALIDO');
               this.cuentaClicks--;
             }
           }
@@ -240,6 +233,8 @@ export class BrowseComponent implements OnInit, AfterViewInit {
         else if (this.cuentaClicks == 2) {
           (cursorH[this.cursorActivoHorizontal] as HTMLElement).click();
         }
+
+
 
        
       }
@@ -267,14 +262,12 @@ export class BrowseComponent implements OnInit, AfterViewInit {
 
       //console.log(cursorH)
       //console.log(cursorV)
-       console.log(`this.cursorActivoHorizontal: ${this.cursorActivoHorizontal}`);
-       console.log(`this.cursorActivoVertical: ${this.cursorActivoVertical}`);
+       //console.log(`this.cursorActivoHorizontal: ${this.cursorActivoHorizontal}`);
+       //console.log(`this.cursorActivoVertical: ${this.cursorActivoVertical}`);
     }
   );
 
-  enterPress(event: any) {
-    console.log(event);
-  }
+
 
   ngAfterViewInit(): void {
     this.initSwiper();
@@ -353,6 +346,8 @@ export class BrowseComponent implements OnInit, AfterViewInit {
   }
 
 
-
+  onLoad() {
+    this.hasLoaded = true;
+  }
   
 }

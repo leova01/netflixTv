@@ -5,7 +5,7 @@ import { DetailsComponent } from './pages/details/details.component';
 
 export const routes: Routes = [
 
-    { path: '', redirectTo: 'Home', pathMatch: 'full' },
+    { path: '', component: BrowseComponent },
     { path: 'Home', component: BrowseComponent },
     { path: 'details/:id', component: DetailsComponent}
 ];

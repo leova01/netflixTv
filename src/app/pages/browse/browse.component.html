@@ -10,8 +10,9 @@
         <ul class="navbar-nav">
 
              <li *ngFor="let item of navItems; let first = first" class="nav-item">
-                <a class="nav-link" [routerLink]="['/Home']" [class.d-none]="first" 
+                <a class="nav-link filter" [routerLink]="['/Home']" [class.d-none]="first" 
                 [class.activeH]="item === navItems[1]"
+                
                 > {{item}} </a>
              </li>
 
@@ -51,7 +52,7 @@
           (mouseenter)="setHoverMovie(movie)"
           (mouseleave)="clearHoverMovie()"
           id="seleccion"
-            class="swiper-slide seleccion"
+            class="swiper-slide seleccion animate__animated animate__fadeIn"
             style="width: 18rem; margin-left:3rem;"
             [routerLink]="['/details/',movie.id]"
           >
@@ -96,11 +97,18 @@
           <section class="row">
             <ng-container *ngFor="let movie of filasArray">
                 <div class="col-3 my-2 seleccion2 d-flex align-items-center justify-content-center">
-                  <a class="card seleccion2" style="width: 18rem;" [routerLink]="['/details/',movie.id]">
+                  <a class="card seleccion2 animate__animated animate__fadeIn" style="width: 18rem;" [routerLink]="['/details/',movie.id]">
+
+
                     <img
                 [src]="movie.poster_path | image"
                 class="card-img-top img-fluid"
+                (load)="onLoad()"
+                [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
               />
+
+                    
+
                     <div class="card-body">
                       <h5 class="card-title">{{movie.title}}</h5>
                       <p class="card-text">{{ movie.overview | description }}</p>
@@ -114,3 +122,4 @@
     </div>
 
 
+   
